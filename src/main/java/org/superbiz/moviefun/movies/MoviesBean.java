@@ -33,6 +33,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
+@Transactional(transactionManager = "platformTransactionManagerMovies")
 public class MoviesBean {
 
     @PersistenceContext(unitName = "pumovies")

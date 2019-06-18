@@ -46,25 +46,25 @@ public class HomeController {
     @GetMapping("/setup")
     public String setup(Map<String, Object> model) {
 
-        transactionTemplateAlbums.execute(new TransactionCallback<Void>() {
-            // the code in this method executes in a transactional context
-            public Void doInTransaction(TransactionStatus status) {
+//        transactionTemplateAlbums.execute(new TransactionCallback<Void>() {
+//            // the code in this method executes in a transactional context
+//            public Void doInTransaction(TransactionStatus status) {
                 for (Album album : albumFixtures.load()) {
                     albumsBean.addAlbum(album);
                 }
-                return null;
-            }
-        });
+//                return null;
+//            }
+//        });
 
-        transactionTemplateMovies.execute(new TransactionCallback<Void>() {
-            // the code in this method executes in a transactional context
-            public Void doInTransaction(TransactionStatus status) {
+//        transactionTemplateMovies.execute(new TransactionCallback<Void>() {
+//            // the code in this method executes in a transactional context
+//            public Void doInTransaction(TransactionStatus status) {
                 for (Movie movie : movieFixtures.load()) {
                     moviesBean.addMovie(movie);
                 }
-                return null;
-            }
-        });
+//                return null;
+//            }
+//        });
 
         model.put("movies", moviesBean.getMovies());
         model.put("albums", albumsBean.getAlbums());

@@ -31,6 +31,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
+@Transactional(transactionManager = "platformTransactionManagerAlbums")
 public class AlbumsBean {
     @PersistenceContext(unitName = "pualbum")
     private EntityManager entityManager;
